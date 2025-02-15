@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>QA Wingman</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="qa-assistant">
+  
+    <div class="logo-container">
+      <img src="icon.png" alt="QA Wingman Logo" class="logo">
+    </div>
+
+    <div class="row">
+      <div class="section">
+        <div class="section-header">
+          <img src="Documents.png" alt="Bug Icon" class="section-icon">
+          <h2>Bug Documentation</h2>
+        </div>
+        <button id="clearlog">Generate Steps to Reproduce</button>
+        <button id="generateSteps">Export Steps to Reproduce</button>
+        <button id="copyStepsAndScreenshot">Generate Bug Report</button>
+      </div>
+
+      <div class="section">
+        <div class="section-header">
+          <img src="Screenshot.png" alt="Media Icon" class="section-icon">
+          <h2>Media Capture</h2>
+        </div>
+        <button id="capture-btn">Take Screenshot</button>
+        <button>Start Recording</button>
+      </div>
+    </div>
+
+    <div class="section quick-actions">
+      <div class="section-header">
+        <img src="quick.png" alt="Actions Icon" class="section-icon">
+        <h2>Logging and AI checklist</h2>
+      </div>
+	<div class="button-row">
+		<button id="startloggin">Start Logging</button>
+		<button id="exportLogs">Generate Checklist</button>
+
+    </div>
+
+  <div class="section-header">
+        <img src="bug.png" alt="Actions Icon" class="section-icon">
+        <h2>AI Bug Title, Observed and Expected Behavior</h2>
+      </div>
+  <textarea id="logInput2" rows="10" cols="10" placeholder="Paste test case to generate bug details..."></textarea><br>
+   <button id="generateBugtitle">Generate Bug Title, Observed and Expected behavior</button>
+   </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
