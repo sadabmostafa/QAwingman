@@ -159,6 +159,9 @@ function generateStepsToReproduce(logs) {
     
     if (log.action === 'click') {
       // If it's a button (based on classes) or an anchor tag (link)
+      if(elementText.includes('\n')){
+        elementText = elementText.split('\n')[0].trim();
+      }
       if (isButton) {
         step = `Click on "${elementText}" button`;
       } else if (isLink) {
