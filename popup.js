@@ -40,12 +40,14 @@ document.getElementById('generateSteps').addEventListener('click', () => {
       console.log(response.message); // Optional: Log confirmation message
     });
     if (response && response.length) {
+      const csvHeader = "Step no, Action, X-path\n"
       const stepsText = response.join("\n");
-      const blob = new Blob([stepsText], { type: 'text/plain' });
+      const csvContent = csvHeader + stepsText
+      const blob = new Blob([csvContent], { type: 'text/plain' });
       const url = URL.createObjectURL(blob);
       const downloadLink = document.createElement('a');
       downloadLink.href = url;
-      downloadLink.download = `steps_to_reproduce_${Date.now()}.txt`;
+      downloadLink.download = `steps_to_reproduce_${Date.now()}.csv`;
       downloadLink.click();
 	  // Copy steps to clipboard
       navigator.clipboard.writeText(stepsText).then(() => {
@@ -57,8 +59,6 @@ document.getElementById('generateSteps').addEventListener('click', () => {
     } else {
       console.log("No steps to generate.");
     }
-
-  
   });
 });
 
@@ -306,7 +306,7 @@ async function generateChecklistFromClipboard() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'response.txt';
+      a.download = 'response.CSV';
       a.click();
       URL.revokeObjectURL(url);
     } else {
@@ -347,7 +347,7 @@ document.getElementById('generateBugtitle').addEventListener('click', async () =
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'response.txt';
+      a.download = 'response.csv';
       a.click();
       URL.revokeObjectURL(url);
     } else {

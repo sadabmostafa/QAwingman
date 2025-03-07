@@ -147,7 +147,7 @@ if (message.command === "getStepsAndScreenshot") {
 function generateStepsToReproduce(logs) {
   let steps = [];
   const currentPageUrl = logs[0].details.url; 
-  steps.push(`1. Ensure that you are on the screen: ${currentPageUrl}`);
+  steps.push(`1, Ensure that you are on the screen: ${currentPageUrl}`); //updated to "," in place of "." as generating CSV.
   logs.forEach((log, index) => {
     const elementText = log.details.text || log.details.tag;
     const isButton = log.details.classes && log.details.classes.includes('btn');
@@ -176,11 +176,11 @@ function generateStepsToReproduce(logs) {
     }
     
     // Add the numbered step
-    steps.push(`${index + 2}. ${step}`);
+    steps.push(`${index + 2}, ${step}`); //updated to "," in place of "." as generating CSV.
   });
   
   // Add "Observe Behavior" as the last step
-  steps.push(`${steps.length + 1}. Observe Behavior`);
+  steps.push(`${steps.length + 1}, Observe Behavior`);
   oldlogs = steps
   return steps;
 }
