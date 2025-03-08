@@ -1,5 +1,5 @@
 // background/messageHandler.js
-import { logClick, logInput, clearLogs, clearOldData, getLogs, getOldLogs } from './logging.js';
+import { logClick, clearLogs, clearOldData, getLogs, getOldLogs } from './logging.js';
 import { captureScreenshot, getLastScreenshot } from './screenshot.js';
 import { generateChecklist, generateBugTitle } from './aiIntegration.js';
 import { generateStepsToReproduce } from './stepsGenerator.js';
