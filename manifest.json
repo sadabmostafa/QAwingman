@@ -3,16 +3,28 @@
   "name": "QA Wingman",
   "version": "1.0",
   "description": "QA Assitant to make task faster and better",
-  "permissions": ["scripting", "storage", "activeTab", "downloads","contextMenus","clipboardRead","clipboardWrite"],
+  "permissions": [
+    "scripting",
+    "storage",
+    "activeTab",
+    "downloads",
+    "contextMenus",
+    "clipboardRead",
+    "clipboardWrite"
+  ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background/messageHandler.js"
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"], 
-      "js": ["content.js"],
-	  "script-src" : "'self'",
-	  "object-src" : "'self'"
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content/content.js"
+      ],
+      "script-src": "'self'",
+      "object-src": "'self'"
     }
   ],
   "action": {
