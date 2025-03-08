@@ -13,7 +13,8 @@
     "clipboardWrite"
   ],
   "background": {
-    "service_worker": "background/messageHandler.js"
+    "service_worker": "background/messageHandler.js",
+    "type": "module"
   },
   "content_scripts": [
     {
