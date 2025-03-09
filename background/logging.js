@@ -51,7 +51,7 @@ function generateStepsToReproduce(logs) {
   steps.push(tableHeader)
   steps.push(`1, Ensure that you are on the screen: ${currentPageUrl}`); //for csv structure
   logs.forEach((log, index) => {
-    const elementText = log.details.text || log.details.tag;
+    const elementText = (log.details.text || log.details.tag).replace(/\n/g, ' ');
     const isButton = log.details.classes && log.details.classes.includes('btn');
     const isMenu = log.details.classes.includes('menuButton');
     const isMenuItem = log.details.classes && log.details.classes.includes('menuItem');
