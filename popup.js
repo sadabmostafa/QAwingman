@@ -45,7 +45,7 @@ document.getElementById('generateSteps').addEventListener('click', () => {
       const url = URL.createObjectURL(blob);
       const downloadLink = document.createElement('a');
       downloadLink.href = url;
-      downloadLink.download = `steps_to_reproduce_${Date.now()}.txt`;
+      downloadLink.download = `steps_to_reproduce_${Date.now()}.csv`; //updated csv format instead of txt
       downloadLink.click();
 	  // Copy steps to clipboard
       navigator.clipboard.writeText(stepsText).then(() => {
