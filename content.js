@@ -19,17 +19,39 @@ document.addEventListener('click', (event) => {
 
 document.addEventListener('input', (event) => {
   const inputElement = event.target;
-  
-  const inputData = {
-    type: 'input',
-    tag: inputElement.tagName,
-    id: inputElement.id || '',
-    classes: inputElement.className || '',
-    value: inputElement.value,
-    url: window.location.href,  // Capture the URL
-  };
-  
-  // Send the input data to the background script
-  chrome.runtime.sendMessage({ action: 'logInput', data: inputData });
+
+  // Ensure the event target is an input, textarea, or contenteditable element
+  if (
+    inputElement.tagName === 'INPUT' ||
+    inputElement.tagName === 'TEXTAREA' ||
+    inputElement.isContentEditable
+  ) {
+    // Capture the input value
+    let inputValue = inputElement.value;
+
+    // Handle contenteditable elements (e.g., rich text editors)
+    if (inputElement.isContentEditable) {
+      inputValue = inputElement.innerText || inputElement.textContent;
+    }
+
+    // Prepare the input data
+    const inputData = {
+      type: 'input',
+      tag: inputElement.tagName,
+      id: inputElement.id || '',
+      classes: inputElement.className || '',
+      value: inputValue, // Use the captured value
+      url: window.location.href, // Capture the URL
+    };
+
+    // Send the input data to the background script
+    chrome.runtime.sendMessage({ action: 'logInput', data: inputData }, (response) => {
+      if (chrome.runtime.lastError) {
+        console.error('Error sending input log:', chrome.runtime.lastError);
+      } else {
+        console.log('Input logged successfully:', inputData);
+      }
+    });
+  }
 });
 
