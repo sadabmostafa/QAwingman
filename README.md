@@ -1,4 +1,4 @@
-# 🦾 QAwingman – Your Ultimate QA Assistant for Faster Testing
+![image](https://github.com/user-attachments/assets/8c77a000-e555-48a0-96c1-c9c3008becac)# 🦾 QAwingman – Your Ultimate QA Assistant for Faster Testing
 
 QAwingman is a powerful browser extension that enhances your QA workflow with features like automated bug logging, AI-powered test case generation, and media capture – all in one place.
 
@@ -46,8 +46,7 @@ Combines bug logging, capturing, and reporting into a single UI.
 ---
 
 ## 📸 UI Preview
-
-
+![Picture1](https://github.com/user-attachments/assets/42410258-63a1-4505-aff4-61e29036973e)
 
 ---
 
